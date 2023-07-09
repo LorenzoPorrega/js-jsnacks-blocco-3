@@ -4,7 +4,7 @@ Continua a chiedere i numeri all’utente e a inserirli nell’array fino a quan
 la somma degli elementi è minore di 50.
 */
 
-//I establish an empty array to populate in the for cycle
+//I establish an empty array to populate thanks to the prompt intthe following while cycle
 let arrayToPop = [];
 //I establish a variable to store the summed about at each iteration starting from 0
 let sum = 0;
