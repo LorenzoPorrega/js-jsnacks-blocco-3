@@ -1,63 +1,26 @@
-const nomi = ["Michele", "Glorian", "Alessio", "Payeturo", "MurasakiIX", "Padre Riccardo", "Valeryo"];
-const cognomi = ["Spuller", "Creum", "Leika", "Lyon", "Bueno", "Carlukkio", "Golluma"];
-const button = document.querySelector(".btn");
-const table =  document.querySelector(".table");
-const tableBody = document.querySelector(".table-body");
+/*Consegna: Fai inserire un numero, che chiameremo N, all’utente. Genera N array,
+ognuno formato da 10 numeri casuali da 1 a 100. Ogni volta che ne crei uno, stampalo.*/
 
-/*Test to see if a random name is generated
-console.log(rngNomi);
-console.log(rngCognomi);
+//I ask the user how many arrays he'd like to create
+let n = parseInt(prompt("How many arrays would you like to create:"));
+//I console print the number of array to create to manual check
+console.log(n + " number of arrays to create ny user request");
+//I establish an empty array to populate with the following for cycle
+let arrayNumb = [];
+
+/*
+This for cycle firstly takes the number of array requested by the user and runs
+i = n cycles, for each cycle (hence for each array created) the second for cycle
+runs 10 times inputting 10 integer numbers in the empty array.
+We still don't have a way to create and store multiple different arrays so before
+creating one I delete arrayNumb, then populate it once with 10 numbers, print it, 
+delete it again and so on for how many times the user requested.
 */
-
-/*Function to have 1 generated name + surname pair generated and printed
-* inside the HTML table for each click on the button
-
-button.addEventListener("click", function(){
-    table.classList.remove("d-none")
-    nameField.innerHTML = "";
-    surnameField.innerHTML = "";
-
-    const rngNomi = nomi[Math.floor(Math.random() * nomi.length)];
-    const rngCognomi = cognomi[Math.floor(Math.random() * cognomi.length)];
-
-    nameField.innerHTML = `${rngNomi}`;
-    surnameField.innerHTML = `${rngCognomi}`;
-    console.log(rngNomi);
-    console.log(rngCognomi);
-});
-*/
-
-/*Function that after the button press displays the table, reset the table body
-*content then initiates a for cycle. The following for cycle runs for 25 times,
-*and it takes the name array and the surnames array and picks a random items
-*out of both and prints a whole table row for each of rngNomi and rngCognomi
-*combination
-*/
-button.addEventListener("click", function(){
-    table.classList.remove("d-none")
-    tableBody.innerHTML = "";
-
-    for (i = 0; i < 24; i++){
-        const rngNomi = nomi[Math.floor(Math.random() * nomi.length)];
-        const rngCognomi = cognomi[Math.floor(Math.random() * cognomi.length)];
-        
-        if (i < 24){
-        tableBody.innerHTML += `<tr class="table-row">
-                                <td class="name text-center">${rngNomi}</td>
-                                <td class="surname text-center">${rngCognomi}</td>
-                            </tr>`;
-        console.log(rngNomi);
-        console.log(rngCognomi);
-        }
-        else{}
+for (let i = 0; i < n; i++){
+    arrayNumb.length = 0;
+    for (let i = 0; i < 10; i++){
+        let nToPush = (Math.floor(Math.random() * 100) + 1);
+        arrayNumb.push(nToPush);
     }
-});
-
-//BONUS TO DO AFTER WHOLE EXERCISE COMPLETION: prevent names and surname repetitions
-
-/*Unused const's
-*
-const nameField = document.querySelector(".name");
-const surnameField = document.querySelector(".surname");
-const tableRow = document.querySelector(".table-row");
-*/
+    console.log(arrayNumb)
+}
