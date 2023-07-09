@@ -1,63 +1,26 @@
-const nomi = ["Michele", "Glorian", "Alessio", "Payeturo", "MurasakiIX", "Padre Riccardo", "Valeryo"];
-const cognomi = ["Spuller", "Creum", "Leika", "Lyon", "Bueno", "Carlukkio", "Golluma"];
-const button = document.querySelector(".btn");
-const table =  document.querySelector(".table");
-const tableBody = document.querySelector(".table-body");
-
-/*Test to see if a random name is generated
-console.log(rngNomi);
-console.log(rngCognomi);
+/*Consegna:
+Crea un array vuoto e chiedi all’utente un numero da inserire nell’array. 
+Continua a chiedere i numeri all’utente e a inserirli nell’array fino a quando 
+la somma degli elementi è minore di 50.
 */
 
-/*Function to have 1 generated name + surname pair generated and printed
-* inside the HTML table for each click on the button
+//I establish an empty array to populate in the for cycle
+let arrayToPop = [];
+//I establish a variable to store the summed about at each iteration starting from 0
+let sum = 0;
 
-button.addEventListener("click", function(){
-    table.classList.remove("d-none")
-    nameField.innerHTML = "";
-    surnameField.innerHTML = "";
-
-    const rngNomi = nomi[Math.floor(Math.random() * nomi.length)];
-    const rngCognomi = cognomi[Math.floor(Math.random() * cognomi.length)];
-
-    nameField.innerHTML = `${rngNomi}`;
-    surnameField.innerHTML = `${rngCognomi}`;
-    console.log(rngNomi);
-    console.log(rngCognomi);
-});
+/*
+This while cycle's condition is to be iterated until the sum is greater than 50, 
+the sum is operated for each cycle, at row: 20, taking the first index of arrayToPop
+(being 0 for the first cycle as stated above) and adding the new user given number.
 */
+while (sum < 50 - 1){
+    numToInsert = parseInt(prompt("Write down one number to add to the array, this input request will be itirated until the sum of the user given numbers is less than 50"));
+    arrayToPop.push(numToInsert);
+    console.log(numToInsert + " is the user given number at this iteration");
+    sum += arrayToPop[0];
+    console.log(sum + " is the sum of the previous iteration's sum + this iteration's user given number");
+}
 
-/*Function that after the button press displays the table, reset the table body
-*content then initiates a for cycle. The following for cycle runs for 25 times,
-*and it takes the name array and the surnames array and picks a random items
-*out of both and prints a whole table row for each of rngNomi and rngCognomi
-*combination
-*/
-button.addEventListener("click", function(){
-    table.classList.remove("d-none")
-    tableBody.innerHTML = "";
+console.log(sum + " sum at the end of the for cycle after let sum reached sum > 50");
 
-    for (i = 0; i < 24; i++){
-        const rngNomi = nomi[Math.floor(Math.random() * nomi.length)];
-        const rngCognomi = cognomi[Math.floor(Math.random() * cognomi.length)];
-        
-        if (i < 24){
-        tableBody.innerHTML += `<tr class="table-row">
-                                <td class="name text-center">${rngNomi}</td>
-                                <td class="surname text-center">${rngCognomi}</td>
-                            </tr>`;
-        console.log(rngNomi);
-        console.log(rngCognomi);
-        }
-        else{}
-    }
-});
-
-//BONUS TO DO AFTER WHOLE EXERCISE COMPLETION: prevent names and surname repetitions
-
-/*Unused const's
-*
-const nameField = document.querySelector(".name");
-const surnameField = document.querySelector(".surname");
-const tableRow = document.querySelector(".table-row");
-*/
